@@ -1,28 +1,26 @@
 <template>
   <div id="app">
-    <img width="25%" src="./assets/logo.png">
-    <HelloWorld msg="Hello Vue in CodeSandbox!" />
+    <DVDScreen :start="start"/>
+    <button @click="startDVD">start/stop</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
-
+import DVDScreen from "@/components/DVDScreen.vue";
 export default {
-  name: "App",
+  name: "app",
   components: {
-    HelloWorld
+    DVDScreen
+  },
+  data() {
+    return {
+      start: false
+    };
+  },
+  methods: {
+    startDVD() {
+      this.start = !this.start;
+    }
   }
 };
 </script>
-
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
